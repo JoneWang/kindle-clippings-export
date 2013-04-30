@@ -3,6 +3,8 @@ kindle-clippings-export
 
 Export your kindle clippings,and custom outfile.Only *kindle paperwhite* tested.
 
+Support both Chinese and English languages settings(paperwhite support chinese).
+
 Example
 =======
 
