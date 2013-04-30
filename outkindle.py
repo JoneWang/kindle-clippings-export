@@ -30,7 +30,6 @@ class Kindle():
     def type_filter(self, mark):
         if not self.export_type: return True
         if mark.type['pid'] == self.export_type:
-            print '@@@@@@'
             return True
         else:
             return False
@@ -174,11 +173,6 @@ def execute(args):
             continue
         if i+1 != args_length and attrs.has_key(args[i]):
             exec("kindle.%s = '%s'" % (attrs[args[i]], args[i+1]))
-
-    print kindle.import_file
-    print kindle.book_name
-    print kindle.export_type
-    print kindle.out_file
 
     kindle.run()
 
