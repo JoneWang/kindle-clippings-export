@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os, sys, re, time, copy
+import sys, re, time, copy
 
 EXPORT_BOOK_HEAD = """{{ title }}\n==========\n\n"""
-EXPORT_BOOK_BODY = """time:{{ time }}\npage:{{ page }}\n{{ type }}: {{ text }}\n\n"""
+EXPORT_BOOK_BODY = """ - time:{{ time }}\n - page:{{ page }}\n - {{ type }}: {{ text }}\n\n"""
 EXPORT_BOOK_FOOT = """The above is content."""
 
 class MarkType():
@@ -141,20 +141,14 @@ class MarkModle():
             self.page = page_data[9:]
             time_data = time_data.split(' ', 1)[-1].split(' ')
             del time_data[1]
-            self.time = self._convert_time(' '.join(time_data), '%Y年%m月%d日 %H:%M:%S', '%Y-%m-%d %H:%M:%S')
+            self.time = convert_time(' '.join(time_data), '%Y年%m月%d日 %H:%M:%S', '%Y-%m-%d %H:%M:%S')
         else:
             self.page = page_data
-            self.time = self._convert_time(time_data.split(', ', 1)[-1], '%B %d, %Y %I:%M:%S %p', '%Y-%m-%d %H:%M:%S')
+            self.time = convert_time(time_data.split(', ', 1)[-1], '%B %d, %Y %I:%M:%S %p', '%Y-%m-%d %H:%M:%S')
 
 
-    def _note_parse(self):
-        pass
-
-    def _highlight_parse(self):
-        pass
-
-    def _convert_time(self, str_time, old_format, new_format):
-        return str(time.strftime(new_format, time.strptime(str_time, old_format)))
+def convert_time(str_time, old_format, new_format):
+    return str(time.strftime(new_format, time.strptime(str_time, old_format)))
 
 
 def contains(seq, aset):

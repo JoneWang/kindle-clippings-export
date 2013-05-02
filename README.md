@@ -15,13 +15,13 @@ The current directory ouput myclippings.out file:
     Le Petit Prince
     ==========
 
-    time:2013-02-30 14:54:24
-    page:63-63
-    Highlight content: At that moment I caught a gleam of light in the impenetrable mystery of his presence
+     - time:2013-02-30 14:54:24
+     - page:63-63
+     - Highlight content: At that moment I caught a gleam of light in the impenetrable mystery of his presence
 
-    time:2013-02-30 14:54:24
-    page:63-63
-    Highlight content: I demanded, abruptly
+     - time:2013-02-30 14:54:24
+     - page:63-63
+     - Highlight content: I demanded, abruptly
     
     The above is content.
 
@@ -41,7 +41,7 @@ Modify EXPORT_BOOK_HEAD, EXPORT_BOOK_BODY, EXPORT_BOOK_FOOT custom your outfile 
 default:
 
     EXPORT_BOOK_HEAD = """{{ title }}\n==========\n\n"""
-    EXPORT_BOOK_BODY = """time:{{ time }}\npage:{{ page }}\n{{ type }}: {{ text }}\n\n"""
+    EXPORT_BOOK_BODY = """ - time:{{ time }}\n - page:{{ page }}\n - {{ type }}: {{ text }}\n\n"""
     EXPORT_BOOK_FOOT = """The above is content."""
 
 variable:
